@@ -353,8 +353,8 @@ a:hover {
 }
 
 .navbar .logo-image img {
-    width: 126px;
-	height: 32px;
+    width: 150px;
+	/* height: 32px; */
 }
 
 .navbar .logo-text {
@@ -511,6 +511,7 @@ a:hover {
 }
 
 .cards-1 .card-icon .fas,
+.cards-1 .card-icon .fab,
 .cards-1 .card-icon .far {
 	color: #0092ff;
 	font-size: 2rem;
@@ -522,6 +523,7 @@ a:hover {
 }
 
 .cards-1 .card-icon.red .fas,
+.cards-1 .card-icon.red .fab,
 .cards-1 .card-icon.red .far {
 	color: #ef473d;
 }
@@ -531,6 +533,7 @@ a:hover {
 }
 
 .cards-1 .card-icon.green .fas,
+.cards-1 .card-icon.green .fab,
 .cards-1 .card-icon.green .far {
 	color: #16c66d;
 }
