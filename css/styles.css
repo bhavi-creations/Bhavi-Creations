@@ -1278,7 +1278,7 @@ a:hover {
 	/* Header */
 	.header {
 		overflow: hidden;
-		padding-top: 20.25rem;
+		padding-top: 15rem;
 		padding-bottom: 15rem;
 	}
 
@@ -1393,3 +1393,59 @@ a:hover {
 	/* end of extra pages */
 }
 /* end of min-width 1200px */
+
+.nav-item a{
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+
+.box{
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #0092ff;
+	font-size: 20px;
+	color: #fff;
+	width: 100%;
+}
+
+.box-content{
+	padding: 10px;
+}
+
+.box-content a{
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.color-text{
+	background: linear-gradient(to right, #637eff, #16c66d);
+    -webkit-background-clip: text; /* For webkit-based browsers (Chrome, Safari) */
+    color: transparent; /* Make the text color transparent to show the gradient */
+    display: inline-block;
+}
+
+
+
+.whatsapp-button {
+    position: fixed;
+    z-index: 99;
+    bottom: 80px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: #2bc873;
+    cursor: pointer;
+}
+
+.whatsapp-button a {
+	padding: 13px;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
