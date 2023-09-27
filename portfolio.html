@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Your description">
+    <meta name="author" content="Bhavi Creations">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>Portfolio - Bhavi Creations</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/icon.png">
+
+    <style>
+        #categories .btn{
+            margin: 5px;
+        }
+
+        #categories .active{
+            background-color: transparent;
+            color: #0092ff;
+            text-decoration: none;  
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            /* width: 200px;
+            height: 200px; */
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+        }
+
+
+        #lightbox-img {
+            max-width: 90%; /* Set a maximum width for the image */
+            max-height: 90vh;
+            margin-top: 15%;
+        }
+
+        .lightbox-arrows{
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0;
+            margin-left: auto;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .lightbox-arrow{
+            padding: 50px;
+            margin: 0 10px; 
+        }
+
+        /* Style for the circular background of the close button */
+        .lightbox-close-container {
+            /* background-color: black; */
+            width: 40px; /* Adjust the width and height as needed */
+            height: 40px;
+            border-radius: 50%;
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0; /* Remove any existing margin */
+        }
+
+        /* Style for the white "x" inside the close button */
+        .close {
+            color: rgb(255, 0, 0);
+            font-size: 40px;
+            line-height: 1;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.png" alt="alternative"></a> 
+
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <!-- <a class="navbar-brand logo-text" href="index.html">Bhavi Creations</a> -->
+
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                </ul>
+                <span class="nav-item">
+                    <a class="btn-solid-sm" href="contact.html">Get quote</a>
+                </span>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+    <!-- Contact -->
+    <div id="contact" class="form-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Explore our Portfolio</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div>
+                <div id="categories">
+                    <button class="btn btn-solid-sm active" data-filter="all">All</button>
+                    <button class="btn btn-solid-sm" data-filter="logo-design">Logo Design</button>
+                    <button class="btn btn-solid-sm" data-filter="google-my-business">Google my business</button>
+                    <button class="btn btn-solid-sm" data-filter="website-design">Website Designs</button>
+                    <button class="btn btn-solid-sm" data-filter="graphic-designs">Graphic Designs</button>
+                    <button class="btn btn-solid-sm" data-filter="video-designs">Video Designs</button>
+                    <button class="btn btn-solid-sm" data-filter="business-kit">Business Kit</button>
+                    <button class="btn btn-solid-sm" data-filter="social-media">Social Media</button>
+                    <button class="btn btn-solid-sm" data-filter="seo">SEO</button>
+                    <!-- Add more category buttons as needed -->
+                </div>
+
+                <div class="row" id="gallery">
+                    <!-- Your gallery images will be dynamically added here -->
+                    <div class="gallery-item col-md-3 mt-3" data-category="logo-design" id="image1">
+                        <img src="./images/portfolio/logo-designs/1.jpeg" alt="Image 1">
+                    </div>
+                    <div class="gallery-item col-md-3 mt-3" data-category="logo-design" id="image1">
+                        <img src="./images/portfolio/logo-designs/2.webp" alt="Image 1">
+                    </div>
+                    <div class="gallery-item col-md-3 mt-3" data-category="google-my-business" id="image2">
+                        <img src="./images/portfolio/google-my-business/1.webp" alt="Image 2">
+                    </div>
+                    <div class="gallery-item col-md-3 mt-3" data-category="google-my-business" id="image3">
+                        <img src="https://placehold.co/350" alt="Image 2">
+                    </div>
+                    <div class="gallery-item col-md-3 mt-3" data-category="google-my-business" id="image4">
+                        <img src="https://placehold.co/450" alt="Image 2">
+                    </div>
+                </div>
+
+                <div id="lightbox" class="hidden">
+                    <div class="lightbox-content">
+                        <img id="lightbox-img" src="" alt="Lightbox Image">
+                    </div>
+                    <div class="lightbox-arrows">
+                        <span class="lightbox-arrow" id="lightbox-prev"><i class="fas fa-arrow-left"></i></span>
+                        <div class="lightbox-close-container" id="lightbox-close">
+                            <span class="close" >&#215;</span>
+                        </div>
+                        <span class="lightbox-arrow" id="lightbox-next"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+                </div>
+                
+                
+                
+                
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-1 -->
+    <!-- end of contact -->
+
+    <!-- Footer -->
+    <div class="footer bg-gray">
+        <img class="decoration-circles" src="images/decoration-circles.png" alt="alternative">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="./images/logo.png" class="img-fluid mb-4" width="150px"/>
+                    <h6 class="address">Behind J.N.T.U Engineering College Play Ground,<br> Ranga Rao Nagar, Kakinada, Andhra Pradesh</h6>
+                    <a class="color-text mt-2" href="tel:(+91) 9642343434">(+91) 9642343434</a><br>
+                    <a class="color-text" href="mailto:bhavicreations2022@gmail.com">bhavicreations2022@gmail.com</a>
+                    <div class="social-container mt-4">
+                        <span class="fa-stack">
+                            <a href="https://www.facebook.com/BhavicreationsPvtLtd/" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://twitter.com/bhavi_creations" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://www.linkedin.com/in/bhavi-creations-pvt-ltd-926651235/" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://www.instagram.com/bhavicreations_pvtltd/%20" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://www.youtube.com/channel/UCbD3l4sGRPKfF36bpGj_lmg" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-youtube fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div> <!-- end of social-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
+
+
+    <!-- Copyright -->
+    <div class="copyright bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <ul class="list-unstyled li-space-lg p-small">
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div> <!-- end of col -->
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <p class="p-small statement">Copyright © <a href="#">Bhavi Creations</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+        <img src="images/up-arrow.png" alt="alternative">
+    </button>
+    <!-- end of back to top button -->
+    	
+    <!-- Scripts -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const categoryButtons = document.querySelectorAll("#categories button");
+            const galleryItems = document.querySelectorAll(".gallery-item");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxClose = document.getElementById("lightbox-close");
+            const lightboxPrev = document.getElementById("lightbox-prev");
+            const lightboxNext = document.getElementById("lightbox-next");
+
+            let currentIndex = 0;
+
+            // Function to hide all gallery items
+            function hideAllItems() {
+                galleryItems.forEach((item) => {
+                    item.style.display = "none";
+                });
+            }
+
+            // Function to open the lightbox
+            function openLightbox(imageSrc) {
+                lightboxImg.src = imageSrc;
+                lightbox.style.display = "flex";
+            }
+
+            // Function to close the lightbox
+            function closeLightbox() {
+                lightbox.style.display = "none";
+            }
+
+            lightboxClose.addEventListener("click", closeLightbox);
+
+            // Event listener to close the lightbox when clicking on the overlay
+            lightbox.addEventListener("click", function (event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+
+            // Event listeners for the previous and next arrows
+            lightboxPrev.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                const imageSrc = galleryItems[currentIndex].querySelector("img").src;
+                openLightbox(imageSrc);
+            });
+
+            lightboxNext.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                const imageSrc = galleryItems[currentIndex].querySelector("img").src;
+                openLightbox(imageSrc);
+            });
+
+            // Event listeners for category buttons
+            categoryButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const category = button.getAttribute("data-filter");
+                    hideAllItems();
+
+                    galleryItems.forEach((item) => {
+                        const itemCategory = item.getAttribute("data-category");
+                        if (category === "all" || category === itemCategory) {
+                            item.style.display = "block";
+                        }
+                    });
+
+                    // Add or remove the "active" class for the clicked button
+                    categoryButtons.forEach((btn) => {
+                        btn.classList.remove("active");
+                    });
+                    button.classList.add("active");
+                });
+            });
+
+            // Initially, hide the lightbox
+            lightbox.style.display = "none";
+
+            // Initially, show all gallery items
+            galleryItems.forEach((item, index) => {
+                item.style.display = "block";
+                item.addEventListener("click", () => {
+                    currentIndex = index; // Update the current index when a gallery item is clicked
+                    const imageSrc = item.querySelector("img").src;
+                    openLightbox(imageSrc);
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
